@@ -62,6 +62,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
+    cell.tweet = tweet;
     cell.nameLabel.text = tweet.user.name;
     NSString *atSign = @"@";
     cell.usernameLabel.text = [atSign stringByAppendingString:tweet.user.screenName];

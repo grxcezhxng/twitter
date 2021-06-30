@@ -129,6 +129,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="TEN-SX-N92"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="favor-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="Iga-I0-W2a" eventType="touchUpInside" id="sYC-AD-0sD"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muv-xY-Ebl">
                                                     <rect key="frame" x="310" y="82.666666666666671" width="30" height="30"/>
