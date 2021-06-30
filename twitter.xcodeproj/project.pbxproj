@@ -20,6 +20,7 @@
 		A6E9D1F4268A714500B4640C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6E9D1F3268A714500B4640C /* Keys.plist */; };
 		A6EEA2B6268BF10A00D3F4CB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EEA2B5268BF10A00D3F4CB /* User.m */; };
 		A6EEA2B9268BFD5600D3F4CB /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EEA2B8268BFD5600D3F4CB /* Tweet.m */; };
+		A6EEA2BC268C2D8700D3F4CB /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EEA2BB268C2D8700D3F4CB /* TweetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		A6EEA2B5268BF10A00D3F4CB /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A6EEA2B7268BFD5600D3F4CB /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		A6EEA2B8268BFD5600D3F4CB /* Tweet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		A6EEA2BA268C2D8700D3F4CB /* TweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		A6EEA2BB268C2D8700D3F4CB /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +95,8 @@
 			children = (
 				6AD2790320BCC01B0085BC29 /* View Controllers */,
 				6AD278FF20BCBF280085BC29 /* Views */,
-				6AD278F720BCB6900085BC29 /* API */,
 				6AD278F820BCBC140085BC29 /* Models */,
+				6AD278F720BCB6900085BC29 /* API */,
 				6AD278D820BC4B950085BC29 /* AppDelegate.h */,
 				6AD278D920BC4B950085BC29 /* AppDelegate.m */,
 				6AD278DE20BC4B950085BC29 /* Main.storyboard */,
@@ -131,6 +134,8 @@
 		6AD278FF20BCBF280085BC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6EEA2BA268C2D8700D3F4CB /* TweetCell.h */,
+				A6EEA2BB268C2D8700D3F4CB /* TweetCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6EEA2BC268C2D8700D3F4CB /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				A6EEA2B6268BF10A00D3F4CB /* User.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
