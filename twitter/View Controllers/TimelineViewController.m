@@ -51,7 +51,10 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.nameLabel.text = tweet.user.name;
+    NSString *atSign = @"@";
+    cell.usernameLabel.text = [atSign stringByAppendingString:tweet.user.screenName];
     cell.usernameLabel.text = tweet.user.screenName;
+    cell.dateLabel.text = tweet.createdAtString;
     cell.tweetLabel.text = tweet.text;
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];;
     cell.favorLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
@@ -59,7 +62,7 @@
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     [cell.profilePhoto setImageWithURL:url];
-    [cell.profilePhoto.layer setCornerRadius:15];
+    [cell.profilePhoto.layer setCornerRadius:40];
     return cell;
 }
 
