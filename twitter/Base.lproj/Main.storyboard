@@ -121,6 +121,9 @@
                                                         <constraint firstAttribute="width" constant="30" id="YNX-4I-bwS"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="retweet-icon"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="Iga-I0-W2a" eventType="touchUpInside" id="fRB-9B-OlM"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-bM-zxh">
                                                     <rect key="frame" x="245" y="82.666666666666671" width="30" height="30"/>
