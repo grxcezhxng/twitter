@@ -46,10 +46,10 @@
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = tweets;
             [self.tableView reloadData];
-            [self.refreshControl endRefreshing];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -75,7 +75,7 @@
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     [cell.profilePhoto setImageWithURL:url];
-    [cell.profilePhoto.layer setCornerRadius:40];
+    [cell.profilePhoto.layer setCornerRadius:35];
     return cell;
 }
 
