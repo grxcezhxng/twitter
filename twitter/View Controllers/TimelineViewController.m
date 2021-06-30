@@ -13,10 +13,11 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "User.h"
+#import "ComposeViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
@@ -52,6 +53,11 @@
     }];
 }
 
+- (void)didTweet:(Tweet*)tweet {
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
@@ -82,6 +88,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     appDelegate.window.rootViewController = loginViewController;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
