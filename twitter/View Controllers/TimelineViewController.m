@@ -10,6 +10,7 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "DetailsViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "User.h"
@@ -35,8 +36,8 @@
     
     [self fetchTweets];
     self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
-        [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (void)fetchTweets {
@@ -67,7 +68,7 @@
     NSString *atSign = @"@";
     cell.usernameLabel.text = [atSign stringByAppendingString:tweet.user.screenName];
     cell.usernameLabel.text = tweet.user.screenName;
-    cell.dateLabel.text = tweet.createdAtString;
+    cell.dateLabel.text = tweet.createdAgoAtString;
     cell.tweetLabel.text = tweet.text;
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];;
     cell.favorLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
@@ -83,18 +84,31 @@
     return self.arrayOfTweets.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (IBAction)logOutHandler:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     appDelegate.window.rootViewController = loginViewController;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if ([segue.identifier isEqualToString:@"showCompose"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+    if ([segue.identifier isEqualToString:@"showDetails"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.tweet = tweet;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
