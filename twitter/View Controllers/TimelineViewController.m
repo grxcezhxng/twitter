@@ -32,7 +32,6 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.rowHeight = 200;
     
     [self fetchTweets];
     self.refreshControl = [[UIRefreshControl alloc] init];

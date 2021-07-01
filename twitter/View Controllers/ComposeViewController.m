@@ -10,7 +10,7 @@
 #import "APIManager.h"
 #import "Tweet.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -20,6 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textView.delegate = self;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.textView.text = nil;
+    self.textView.textColor = UIColor.blackColor;
 }
 
 - (IBAction)handleClose:(id)sender {
