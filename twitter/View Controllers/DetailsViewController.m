@@ -28,8 +28,8 @@
     self.favorLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
     
     self.profilePhoto.layer.cornerRadius = 35;
-    NSString *URLString = self.tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
+    NSString *const URLString = self.tweet.user.profilePicture;
+    NSURL *const url = [NSURL URLWithString:URLString];
     [self.profilePhoto setImageWithURL:url];
     self.profilePhoto.layer.cornerRadius = 35;
 }

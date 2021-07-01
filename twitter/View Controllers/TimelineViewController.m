@@ -40,10 +40,8 @@
 }
 
 - (void)fetchTweets {
-    // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = tweets;
             [self.tableView reloadData];
         } else {
@@ -60,20 +58,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
-    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    Tweet *const tweet = self.arrayOfTweets[indexPath.row];
     
     cell.tweet = tweet;
     cell.nameLabel.text = tweet.user.name;
-    NSString *atSign = @"@";
-    cell.usernameLabel.text = [atSign stringByAppendingString:tweet.user.screenName];
+    cell.usernameLabel.text = tweet.user.screenName;
     cell.usernameLabel.text = tweet.user.screenName;
     cell.dateLabel.text = tweet.createdAgoAtString;
     cell.tweetLabel.text = tweet.text;
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];;
     cell.favorLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     
-    NSString *URLString = tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
+    NSString *const URLString = tweet.user.profilePicture;
+    NSURL *const url = [NSURL URLWithString:URLString];
     [cell.profilePhoto setImageWithURL:url];
     [cell.profilePhoto.layer setCornerRadius:35];
     return cell;
@@ -84,12 +81,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (IBAction)logOutHandler:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     appDelegate.window.rootViewController = loginViewController;

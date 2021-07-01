@@ -17,9 +17,9 @@
     if (self) {
         
         // Is this a re-tweet?
-        NSDictionary *originalTweet = dictionary[@"retweeted_status"];
-        if(originalTweet != nil){
-            NSDictionary *userDictionary = dictionary[@"user"];
+        NSDictionary *const originalTweet = dictionary[@"retweeted_status"];
+        if (originalTweet != nil){
+            NSDictionary *const userDictionary = dictionary[@"user"];
             self.retweetedByUser = [[User alloc] initWithDictionary:userDictionary];
             
             // Change tweet to original tweet
@@ -33,27 +33,24 @@
         self.retweeted = [dictionary[@"retweeted"] boolValue];
         
         // Initialize user
-        NSDictionary *user = dictionary[@"user"];
+        NSDictionary *const user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
         
-        // Format and set date strings
-        NSString *createdAtOriginalString = dictionary[@"created_at"];
+        // Date
+        NSString *const createdAtOriginalString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        // Configure the input format to parse the date string
         formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
-        
-        // Convert String to Date
-        NSDate *date = [formatter dateFromString:createdAtOriginalString];
-        
-        // Convert Date and Times to Strings
+        NSDate *const date = [formatter dateFromString:createdAtOriginalString];
         formatter.dateStyle = NSDateFormatterShortStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
         self.createdAtString = [formatter stringFromDate:date];
+        self.createdAgoAtString = date.shortTimeAgoSinceNow;
+        
+        // Time
         NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
         timeFormatter.dateFormat = @"HH:mm:ss";
         NSString *timeString = [timeFormatter stringFromDate: date];
         self.createdTimeAtString = timeString;
-        self.createdAgoAtString = date.shortTimeAgoSinceNow;
     }
     return self;
 }
@@ -61,7 +58,7 @@
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries{
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
-        Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
+        Tweet *const tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
     return tweets;

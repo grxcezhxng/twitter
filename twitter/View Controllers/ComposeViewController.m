@@ -34,16 +34,15 @@
 
 - (IBAction)handleTweet:(id)sender {
     [[APIManager shared]
-            postStatusWithText:self.textView.text
-            completion:^(Tweet *tweet, NSError *error) {
-                if (tweet) {
-                    [self.delegate didTweet:tweet];
-                    NSLog(@"Successfully composed tweet");
-                    [self dismissViewControllerAnimated:true completion:nil];
-                } else {
-                    NSLog(@"Error composing tweet: %@", error.localizedDescription);
-                }
-        }];
+     postStatusWithText:self.textView.text
+     completion:^(Tweet *tweet, NSError *error) {
+        if (tweet) {
+            [self.delegate didTweet:tweet];
+            [self dismissViewControllerAnimated:true completion:nil];
+        } else {
+            NSLog(@"Error composing tweet: %@", error.localizedDescription);
+        }
+    }];
 }
 
 @end
