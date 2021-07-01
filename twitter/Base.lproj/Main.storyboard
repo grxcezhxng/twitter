@@ -443,17 +443,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9BA-1Q-6Lg">
-                                <rect key="frame" x="16" y="103" width="358" height="741"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9BA-1Q-6Lg">
+                                <rect key="frame" x="20" y="106" width="350" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="5JF-ir-U1s"/>
+                                    <constraint firstAttribute="width" constant="350" id="hwo-IO-oV5"/>
+                                </constraints>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGl-ZW-DFb">
+                                <rect key="frame" x="20" y="321" width="11" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHG-a1-jgU">
+                                <rect key="frame" x="35" y="321" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i9O-cK-k2z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XHG-a1-jgU" firstAttribute="leading" secondItem="lGl-ZW-DFb" secondAttribute="trailing" constant="4" id="BsD-0X-FjK"/>
+                            <constraint firstItem="lGl-ZW-DFb" firstAttribute="top" secondItem="9BA-1Q-6Lg" secondAttribute="bottom" constant="15" id="GBa-8C-PNo"/>
+                            <constraint firstItem="XHG-a1-jgU" firstAttribute="firstBaseline" secondItem="lGl-ZW-DFb" secondAttribute="firstBaseline" id="aEM-z1-WKi"/>
+                            <constraint firstItem="9BA-1Q-6Lg" firstAttribute="leading" secondItem="i9O-cK-k2z" secondAttribute="leading" constant="20" id="n8k-Cb-Kav"/>
+                            <constraint firstItem="9BA-1Q-6Lg" firstAttribute="top" secondItem="i9O-cK-k2z" secondAttribute="top" constant="50" id="ogV-ni-Rso"/>
+                            <constraint firstItem="lGl-ZW-DFb" firstAttribute="leading" secondItem="9BA-1Q-6Lg" secondAttribute="leading" id="rsh-Zd-8Zu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kCX-Ty-Pgr">
                         <barButtonItem key="leftBarButtonItem" title="X" id="616-JV-iS0">
@@ -468,6 +491,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterLabel" destination="lGl-ZW-DFb" id="bJe-oj-MAY"/>
                         <outlet property="textView" destination="9BA-1Q-6Lg" id="OzT-Zb-iz0"/>
                     </connections>
                 </viewController>
