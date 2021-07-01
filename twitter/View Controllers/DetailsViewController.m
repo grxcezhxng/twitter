@@ -7,8 +7,8 @@
 //
 
 #import "DetailsViewController.h"
-#import "UIImage+AFNetworking.h"
 #import "APIManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
 
@@ -26,6 +26,12 @@
     self.timeLabel.text = self.tweet.createdTimeAtString;
     self.retweetLabel.text = [NSString stringWithFormat:@"%i", self.tweet.retweetCount];
     self.favorLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
+    
+    self.profilePhoto.layer.cornerRadius = 35;
+    NSString *URLString = self.tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    [self.profilePhoto setImageWithURL:url];
+    self.profilePhoto.layer.cornerRadius = 35;
 }
 
 @end
