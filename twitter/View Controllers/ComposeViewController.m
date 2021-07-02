@@ -35,7 +35,7 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    const int characterLimit = 140;
+    const int characterLimit = 280;
     NSString *newText = [self.textView.text stringByReplacingCharactersInRange:range withString:text];
     return newText.length < characterLimit;
 }
