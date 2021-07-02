@@ -8,8 +8,8 @@ Time spent: **18** hours spent in total
 
 The following **required** functionality is completed:
 
-- [X ] User sees app icon in home screen and styled launch screen
-- [X ] User can sign in using OAuth login flow
+- [X] User sees app icon in home screen and styled launch screen
+- [X] User can sign in using OAuth login flow
 - [X] User can Logout
 - [X] User can view last 20 tweets from their home timeline
 - [X] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
@@ -53,7 +53,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src="TwitterGif.gif">
 
 GIF created with [Kap](https://getkap.co/).
 
