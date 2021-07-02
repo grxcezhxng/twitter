@@ -55,6 +55,9 @@ Here's a walkthrough of implemented user stories:
 
 <img src="TwitterGif.gif">
 
+<img width="884" alt="Screen Shot 2021-07-01 at 5 29 50 PM" src="https://user-images.githubusercontent.com/54779649/124204108-30e08400-da93-11eb-8c72-4bb12b5fbd6b.png">
+
+
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
